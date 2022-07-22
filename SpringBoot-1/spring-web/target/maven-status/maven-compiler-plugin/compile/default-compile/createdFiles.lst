@@ -1,0 +1,14 @@
+com\myjava\controller\user\UserController.class
+com\myjava\controller\student\StudentController.class
+com\myjava\dao\student\StudentMapper.class
+com\myjava\DemoApplication.class
+com\myjava\service\user\UserService.class
+com\myjava\service\impl\student\StudentServiceImpl.class
+com\myjava\po\base\BasePO.class
+com\myjava\po\student\StudentPO.class
+com\myjava\dao\user\UserMapper.class
+com\myjava\request\student\StudentRequest.class
+com\myjava\service\student\StudentService.class
+com\myjava\request\user\UserRequest.class
+com\myjava\service\impl\user\UserServiceImpl.class
+com\myjava\po\user\UserPO.class
