@@ -1,4 +1,4 @@
-# Java
+# JavaSpringDemo
 从.net平台转移到java平台的一些小记，练手，问题记录等
 
 ## 目录结构相关整理
