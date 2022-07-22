@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myjava.demo.dao.mapper.user.UserMapper">
+
+    <select id="selectAll" parameterType="com.myjava.demo.filter.user.UserFilter" resultType="com.myjava.demo.response.user.UserResponse">
+        SELECT * FROM t_sys_user where 1=1
+        <if test="account != null and account != ''">
+            and account like CONCAT('%','${account}','%' )
+        </if>
+        <if test="userName != null and userName != ''">
+            and account like CONCAT('%','${userName}','%' )
+        </if>
+        order by ID desc
+    </select>
+
+    <select id="selectOne" parameterType="java.lang.Long" resultType="com.myjava.demo.response.user.UserResponse">
+        SELECT * FROM  t_sys_user where id = #{id} order by ID desc
+    </select>
+
+    <insert id="insert" parameterType="com.myjava.demo.dto.user.UserDTO">
+        INSERT INTO `mydb`.`t_sys_user`(`account`, `userName`, `mobile`, `email`, `sex`, `isDelete`, `addTime`, `updateTime`)
+        VALUES (#{account}, #{userName}, #{mobile}, #{email}, #{sex}, #{isDelete}, #{addTime}, #{updateTime});
+    </insert>
+
+    <update id="update" parameterType="com.myjava.demo.dto.user.UserDTO">
+        UPDATE `mydb`.`t_sys_user` SET `account` = #{account}, `userName` = #{userName}, `mobile` = #{mobile}, `email` = #{email}, `sex` = #{sex}, `isDelete` = #{isDelete}, `addTime` = #{addTime}, `updateTime` = #{updateTime} WHERE `id` = #{id};
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        update t_sys_user set isDelete = true where id = #{id}
+    </delete>
+
+    <!--    <delete id="delete" parameterType="java.lang.Long">-->
+    <!--        delete t_sys_user where id = #{id}-->
+    <!--    </delete>-->
+
+</mapper>
